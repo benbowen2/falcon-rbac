@@ -1,7 +1,13 @@
 import falcon
 
-from views.authorize import AuthorizeUser
+from middleware.sessionMiddleware import SQLAlchemySessionManager
 
-api.application.falcon()
+from views.authView import AuthorizeUser
+from views.healthView import HealthCheck
+
+api = falcon.API(middleware=[
+	SQLAlchemySessionManager()
+])
 
 api.add_route('/auth', AuthorizeUser())
+api.add_route('/health', HealthCheck())

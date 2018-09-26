@@ -18,20 +18,23 @@ PermissionRoles = {
         "allowAPI",
     ],
     "is_bronze_admin":[
+
     ],
     "is_silver_user":[
         "canViewAllGroups",
         "canViewAllUsers",
     ],
     "is_silver_admin":[
-    ]
+
+    ],
     "is_gold_user":[
         "canModifyGroup",
         "canDeleteGroup",
         "canModifyUser",
         "canDeleteUser",
-    ]
+    ],
     "is_gold_admin":[
+
     ]
 }
 
@@ -44,7 +47,7 @@ PermissionGroups = {
             'is_silver_user'
             'is_silver_admin'
         ]
-    }
+    },
     'silver': {
         'user': [
             'is_bronze_user',
@@ -55,7 +58,7 @@ PermissionGroups = {
             'is_silver_user',
             'is_silver_admin',
         ]
-    }
+    },
     'gold': {
         'user': [
             'is_bronze_user',

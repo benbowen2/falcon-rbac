@@ -2,3 +2,6 @@ gunicorn
 falcon
 jwt
 sqlalchemy
+sqlalchemy_utils
+passlib
+pymysql
