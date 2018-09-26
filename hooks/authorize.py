@@ -1,7 +1,7 @@
 import falcon
 import jwt
 
-from settings import jwt_secret_key, use_auth
+from settings import jwt_secret_key
 
 AvailablePermissions = {
     "allowAPI": 1,
@@ -78,8 +78,6 @@ class Authorize(object):
 
     def __call__(self, req, resp, resource, params):
         self.resource = resource
-        if not use_auth:
-            return
 
         if not self._checkAuth(req):
             raise falcon.HTTPUnauthorized(
