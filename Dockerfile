@@ -25,9 +25,9 @@ RUN tar xzf /tmp/s6-overlay-amd64.tar.gz -C /
 RUN mkdir -p /etc/nginx/sites-enabled && \
 	mkdir -p /var/run/s6/uncaught-logs-fifo && \
 	mkdir -p /var/log/s6-uncaught-logs && \
-	chmod -R 777 /var/log/s6-uncaught-logs
+	chmod -R 777 /var/log/s6-uncaught-logs && \
+	rm /etc/nginx/sites-enabled/default | true
 
-RUN rm /etc/nginx/sites-enabled/default | true
 COPY docker/nginx.conf /etc/nginx/sites-enabled
 COPY docker/s6 /etc/s6/services
 
