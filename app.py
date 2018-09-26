@@ -2,13 +2,12 @@ import falcon
 
 import auth_hook
 from views import (
-	Authorize,
+	AuthorizeUser,
 	Users,
-	Notes,
+	Groups
 	)
 
 api.application.falcon()
 
-api.add_route('/auth')
-api.add_route('/users')
-api.add_route('/notes')
+api.add_route('/auth', AuthorizeUser())
+# api.add_route('/users')

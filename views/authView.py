@@ -26,7 +26,7 @@ def create_scope(user_type, company_type):
     return int(scope)
 
 
-class Authorize(object):
+class AuthorizeUser(object):
 	def on_post(self, req, resp):
 		body = json.loads(req.stream.read())
 
