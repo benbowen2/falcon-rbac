@@ -22,10 +22,12 @@ RUN pip3 install -r requirements.txt
 ADD https://github.com/just-containers/s6-overlay/releases/download/v1.21.7.0/s6-overlay-amd64.tar.gz /tmp/
 RUN tar xzf /tmp/s6-overlay-amd64.tar.gz -C /
 
-RUN echo "daemon off;" >> /etc/nginx/nginx.conf
-RUN mkdir -p /etc/nginx/sites-enabled
-RUN rm /etc/nginx/sites-enabled/default | true
+RUN mkdir -p /etc/nginx/sites-enabled && \
+	mkdir -p /var/run/s6/uncaught-logs-fifo && \
+	mkdir -p /var/log/s6-uncaught-logs && \
+	chmod -R 777 /var/log/s6-uncaught-logs
 
+RUN rm /etc/nginx/sites-enabled/default | true
 COPY docker/nginx.conf /etc/nginx/sites-enabled
 COPY docker/s6 /etc/s6/services
 
